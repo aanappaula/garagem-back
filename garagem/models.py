@@ -5,10 +5,40 @@ class Marca(models.Model):
     nacionalidade = models.CharField(max_length=50, null=True, blank=True)
 
     def __str__(self):
-        return f"{self.nome.upper()} ({self.id})"
+        return f"{self.nome.upper()}"
 
 class Categoria(models.Model):
     descricao = models.CharField(max_length=100)
 
     def __str__(self):
         return f"{self.descricao} ({self.id})"
+
+class Acessorio(models.Model):
+    descricao = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.descricao} ({self.id})"
+    
+class Cor(models.Model):
+    descricao = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.descricao}"
+    
+class Veiculo(models.Model):
+    marca = models.ForeignKey(
+        Marca, on_delete=models.PROTECT, related_name="veiculos"
+    )
+    modelo = models.CharField(max_length=15, null=False, default=0)
+    categoria = models.ForeignKey(
+        Categoria, on_delete=models.PROTECT, related_name="veiculos"
+    )
+    cor = models.ForeignKey(
+        Cor, on_delete=models.PROTECT, related_name="veiculos"
+    )
+    ano = models.IntegerField(null=True,default=0)
+    preco = models.DecimalField(max_digits=10, decimal_places=5, null=True, 
+    default=0)
+
+    def __str__(self):
+        return f"Marca: {self.marca} Modelo: {self.modelo} Ano: {self.ano} Cor: {self.cor}"
