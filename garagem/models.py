@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Marca(models.Model):
     nome = models.CharField(max_length=50)
     nacionalidade = models.CharField(max_length=50, null=True, blank=True)
@@ -7,11 +8,13 @@ class Marca(models.Model):
     def __str__(self):
         return f"{self.nome.upper()}"
 
+
 class Categoria(models.Model):
     descricao = models.CharField(max_length=100)
 
     def __str__(self):
         return f"{self.descricao} ({self.id})"
+
 
 class Acessorio(models.Model):
     descricao = models.CharField(max_length=100)
@@ -22,7 +25,8 @@ class Acessorio(models.Model):
     class Meta:
         verbose_name = "acessório"
         verbose_name_plural = "acessórios"
-    
+ 
+   
 class Cor(models.Model):
     descricao = models.CharField(max_length=100)
 
@@ -32,7 +36,8 @@ class Cor(models.Model):
     class Meta:
         verbose_name = "cor"
         verbose_name_plural = "cores"
-    
+
+   
 class Veiculo(models.Model):
     marca = models.ForeignKey(
         Marca, on_delete=models.PROTECT, related_name="veiculos"
