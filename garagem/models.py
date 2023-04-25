@@ -37,7 +37,13 @@ class Cor(models.Model):
         verbose_name = "cor"
         verbose_name_plural = "cores"
 
-   
+
+class Modelo(models.Model):
+    descricao = models.CharField(max_length=100)
+    def __str__(self):
+        return self.descricao
+    
+
 class Veiculo(models.Model):
     marca = models.ForeignKey(
         Marca, on_delete=models.PROTECT, related_name="veiculos"
