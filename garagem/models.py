@@ -40,8 +40,13 @@ class Cor(models.Model):
 
 class Modelo(models.Model):
     descricao = models.CharField(max_length=100)
+    
     def __str__(self):
-        return self.descricao
+        return f"{self.descricao} ({self.id})"
+
+    class Meta:
+        verbose_name = "modelo"
+        verbose_name_plural = "modelos"
     
 
 class Veiculo(models.Model):
