@@ -63,7 +63,7 @@ class Veiculo(models.Model):
     ano = models.IntegerField(null=True,default=0)
     preco = models.DecimalField(max_digits=10, decimal_places=5, null=True, 
     default=0)
-
+    acessorios = models.ManyToManyField(Acessorio, related_name="veiculos")
     def __str__(self):
         return f"Marca: {self.marca} Modelo: {self.modelo} Ano: {self.ano} Cor: {self.cor}"
     
