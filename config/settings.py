@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'usuario',
     'uploader',
+    'drf_spectacular',
     'garagem',
     'rest_framework_simplejwt',
 ]
@@ -125,10 +126,17 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         # "rest_framework.permissions.DjangoModelPermissions",
     ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
      
     # "DEFAULT_AUTHENTICATION_CLASSES": (
     #     "rest_framework_simplejwt.authentication.JWTAuthentication",
     # ),  
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Garagem API",
+    "DESCRIPTION": "API para gerenciamento de garagem, incluindo endpoints e documentação.",
+    "VERSION": "1.0.0",
 }
 
 AUTH_USER_MODEL = "usuario.Usuario"
