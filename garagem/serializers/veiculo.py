@@ -7,6 +7,7 @@ from uploader.serializers import ImageSerializer
 
 from garagem.models import Veiculo
 
+
 class VeiculoSerializer(ModelSerializer):
     capa_attachment_key = SlugRelatedField(
         source="capa",
@@ -21,6 +22,7 @@ class VeiculoSerializer(ModelSerializer):
         model = Veiculo
         fields = "__all__"
 
+
 class VeiculoDetailSerializer(ModelSerializer):
     capa = ImageSerializer(required=False)
     
@@ -28,6 +30,7 @@ class VeiculoDetailSerializer(ModelSerializer):
         model = Veiculo
         fields = "__all__"
         depth = 1
+
 
 class VeiculoListSerializer(ModelSerializer):
     class Meta:
