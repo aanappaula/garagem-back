@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'garagem',
     'rest_framework_simplejwt',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
