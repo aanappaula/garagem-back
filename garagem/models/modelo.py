@@ -8,10 +8,10 @@ class Modelo(models.Model):
     id = models.BigAutoField(primary_key=True)
     nome = models.CharField(max_length=100)
     marca = models.ForeignKey(
-        Marca, on_delete=models.PROTECT, related_name="veiculos"
+        Marca, on_delete=models.PROTECT, related_name="modelo"
     )
     categoria = models.ForeignKey(
-        Categoria, on_delete=models.PROTECT, related_name="veiculos"
+        Categoria, on_delete=models.PROTECT, related_name="modelo"
     )
     
     def __str__(self):
